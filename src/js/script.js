@@ -5,8 +5,7 @@
 
 // 🔁 After deploying to Render, replace this URL with your actual Render URL
 // Example: 'https://student-portal-backend.onrender.com/api'
-const API = 'https://stdport.onrender.com/api';
-
+const API = "https://stdportal.onrender.com/api";
 // Global state
 let currentStudent = null;
 let attendanceData = [];
