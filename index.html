@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance Portal - Login</title>
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body class="login-page">
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="src/images/logo.svg" alt="Prithvish error" class="logo">
+            </div>
+            <nav class="main-nav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn-header-login" onclick="showLoginModal()">Login</button>
+                <button class="btn-header-register" onclick="showRegisterModal()">Register</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="landing-main" id="home">
+        <div class="content-container">
+            <div class="student-illustration">
+                <img src="src/images/student.png" alt="Student" class="student-img">
+            </div>
+            <div class="content-text">
+                <h1 class="main-heading">STUDENT PORTAL</h1>
+                <p class="description">
+                    Track attendance. Plan leaves. Stay compliant. </p>
+                <button class="btn-read-more">Read More</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="section-container">
+            <h2 class="section-title">About Student Portal</h2>
+            <div class="about-content">
+                <div class="about-item">
+                    <h3>📚 Track Attendance</h3>
+                    <p>Monitor your attendance across all subjects in real-time with detailed statistics and insights.
+                    </p>
+                </div>
+                <div class="about-item">
+                    <h3>📊 Analytics Dashboard</h3>
+                    <p>Get comprehensive analytics of your academic performance with interactive charts and reports.</p>
+                </div>
+                <div class="about-item">
+                    <h3>🎯 Leave Management</h3>
+                    <p>Plan your leaves smartly with our intelligent leave tracker that ensures you maintain required
+                        attendance.</p>
+                </div>
+                <div class="about-item">
+                    <h3>📱 Mobile Friendly</h3>
+                    <p>Access your portal anytime, anywhere with our fully responsive design optimized for all devices.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="section-container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p class="contact-subtitle">Have questions? We'd love to hear from you.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>support@studentportal.edu</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+91 1234567890</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h4>Address</h4>
+                                <p>Greater Noida, Uttar Pradesh</p>
+                                <p>India - 201306</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">🕐</div>
+                            <div class="contact-text">
+                                <h4>Office Hours</h4>
+                                <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                                <p>Saturday: 9:00 AM - 1:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h3>Send us a Message</h3>
+                    <form class="contact-form" onsubmit="handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label for="contactName">Full Name</label>
+                            <input type="text" id="contactName" name="name" placeholder="Your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address</label>
+                            <input type="email" id="contactEmail" name="email" placeholder="your.email@example.com"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactSubject">Subject</label>
+                            <input type="text" id="contactSubject" name="subject" placeholder="How can we help?"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" name="message" rows="5" placeholder="Your message..."
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-contact-submit">Send Message</button>
+
+                        <div id="contactSuccess" class="success-message" style="display: none;">
+                            Thank you! Your message has been sent successfully.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Student Attendance Portal. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="login-modal" style="display: none;">
+        <div class="modal-overlay" onclick="closeLoginModal()"></div>
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeLoginModal()">&times;</button>
+            <h2 class="modal-title">Student Login</h2>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password" required>
+                </div>
+
+                <button type="submit" class="btn-modal-login">Login</button>
+
+                <div id="errorMessage" class="error-message" style="display: none;">
+                    Invalid username or password
+                </div>
+            </form>
+            <p class="modal-footer-text">Don't have an account? <a href="#" onclick="switchToRegister()">Register
+                    here</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="login-modal" style="display: none;">
+        <div class="modal-overlay" onclick="closeRegisterModal()"></div>
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeRegisterModal()">&times;</button>
+            <h2 class="modal-title">Student Registration</h2>
+            <form id="registerForm" class="login-form">
+                <div class="form-group">
+                    <label for="regFullName">Full Name</label>
+                    <input type="text" id="regFullName" name="fullName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="regUsername">Username</label>
+                    <input type="text" id="regUsername" name="username" placeholder="Choose a username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" name="email" placeholder="your.email@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" name="password" placeholder="Create a password" required
+                        minlength="6">
+                </div>
+
+                <div class="form-group">
+                    <label for="regConfirmPassword">Confirm Password</label>
+                    <input type="password" id="regConfirmPassword" name="confirmPassword"
+                        placeholder="Confirm your password" required minlength="6">
+                </div>
+
+                <div class="form-group">
+                    <label for="regStudentId">Student ID</label>
+                    <input type="text" id="regStudentId" name="studentId" placeholder="Enter student ID" required>
+                </div>
+
+                <button type="submit" class="btn-modal-login">Register</button>
+
+                <div id="registerErrorMessage" class="error-message" style="display: none;">
+                    Registration failed. Please try again.
+                </div>
+                <div id="registerSuccessMessage" class="success-message" style="display: none;">
+                    Registration successful! You can now login.
+                </div>
+            </form>
+            <p class="modal-footer-text">Already have an account? <a href="#" onclick="switchToLogin()">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="src/js/script.js"></script>
+    <script>
+        // ── Modal helpers ──────────────────────────────
+        function showLoginModal() {
+            document.getElementById('loginModal').style.display = 'flex';
+        }
+        function closeLoginModal() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+        function showRegisterModal() {
+            document.getElementById('registerModal').style.display = 'flex';
+        }
+        function closeRegisterModal() {
+            document.getElementById('registerModal').style.display = 'none';
+        }
+        function switchToRegister() { closeLoginModal(); showRegisterModal(); }
+        function switchToLogin()    { closeRegisterModal(); showLoginModal(); }
+
+        // ── Wire forms to script.js (API-based) ───────
+        document.getElementById('loginForm').addEventListener('submit', e => { e.preventDefault(); handleLogin(); });
+        document.getElementById('registerForm').addEventListener('submit', e => { e.preventDefault(); handleRegister(); });
+
+        // ── Contact form ───────────────────────────────
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const msg = document.getElementById('contactSuccess');
+            msg.style.display = 'block';
+            e.target.reset();
+            setTimeout(() => msg.style.display = 'none', 5000);
+        }
+
+        // ── ESC closes modals ──────────────────────────
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') { closeLoginModal(); closeRegisterModal(); }
+        });
+
+        // ── Smooth scroll ──────────────────────────────
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+
+</html>

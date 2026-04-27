@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - Student Attendance Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <h2>Student Portal</h2>
+            </div>
+            
+            <button class="navbar-toggler" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="dashboard.html" class="nav-link" data-page="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a></li>
+                <li><a href="#" class="nav-link" data-page="transport">
+                    <i class="fas fa-bus"></i>
+                    <span>Transport</span>
+                </a></li>
+                <li><a href="#" class="nav-link" data-page="syllabus">
+                    <i class="fas fa-book"></i>
+                    <span>Syllabus</span>
+                </a></li>
+                <li><a href="#" class="nav-link" data-page="calendar">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Calendar</span>
+                </a></li>
+                <li><a href="#" class="nav-link" data-page="timetable">
+                    <i class="fas fa-clock"></i>
+                    <span>Time Table</span>
+                </a></li>
+                <li><a href="#" class="nav-link" data-page="library">
+                    <i class="fas fa-book-reader"></i>
+                    <span>Library</span>
+                </a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-link active" onclick="toggleDropdown(event, 'academicDropdown')">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Academic</span>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <ul class="dropdown-menu" id="academicDropdown">
+                        <li><a href="attendance.html" class="active">Attendance</a></li>
+                        <li><a href="#">Fees Details</a></li>
+                        <li><a href="leave-tracker.html">Leave Details</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-link" onclick="toggleDropdown(event, 'moreDropdown')">
+                        <i class="fas fa-ellipsis-h"></i>
+                        <span>More</span>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <ul class="dropdown-menu" id="moreDropdown">
+                        <li><a href="#">Hostel</a></li>
+                        <li><a href="#">Contact Mentor</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="navbar-user">
+                <div class="user-profile" onclick="toggleDropdown(event, 'userDropdown')">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="user-details">
+                        <span class="user-name" id="studentName">Loading...</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <ul class="dropdown-menu user-dropdown" id="userDropdown">
+                    <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="app-container">
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Attendance Details</h1>
+            </header>
+            
+            <div class="attendance-content">
+                <div class="attendance-summary">
+                    <div class="summary-card">
+                        <h3>Overall Attendance</h3>
+                        <div class="overall-percentage" id="overallPercentage">--</div>
+                    </div>
+                </div>
+                
+                <div class="subjects-container">
+                    <h3>Subject-wise Attendance</h3>
+                    <div id="attendanceList" class="attendance-grid">
+                        <p>Loading attendance data...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="../js/script.js"></script>
+    <script>
+        // Load attendance data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAttendanceData();
+        });
+    </script>
+</body>
+</html>
