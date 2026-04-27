@@ -1,9 +1,11 @@
 // =============================================
 //  Student Portal JavaScript
-//  Backend API: http://localhost:3001
+//  Backend API: Render (deployed)
 // =============================================
 
-const API = 'http://localhost:3001/api';
+// 🔁 After deploying to Render, replace this URL with your actual Render URL
+// Example: 'https://student-portal-backend.onrender.com/api'
+const API = 'https://stdport.onrender.com/api';
 
 // Global state
 let currentStudent = null;

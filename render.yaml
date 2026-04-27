@@ -1,0 +1,13 @@
+# render.yaml — Render deployment config for Student Portal backend
+# Docs: https://render.com/docs/yaml-spec
+
+services:
+  - type: web
+    name: stdport
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
